@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Resume Screener</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-orb bg-orb-a"></div>
+    <div class="bg-orb bg-orb-b"></div>
+    <div class="bg-grid"></div>
+
+    <header class="topbar">
+      <div class="brand">Rankly</div>
+      <div class="badge">Groq Resume Intelligence</div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">AI-Powered Candidate Feedback</p>
+          <h1>
+            Resume Scoring
+            <span class="accent">with Precision</span>
+          </h1>
+          <p class="subtitle">Upload a resume once and get instant strengths, gaps, ATS score, and a concrete action plan.</p>
+        </div>
+        <aside class="hero-panel">
+          <p class="mini-title">Live Insight</p>
+          <p class="big-score" id="heroScore">--</p>
+          <p class="mini-sub">Overall Resume Score</p>
+          <div class="mini-bars">
+            <div>
+              <span>ATS</span>
+              <b id="heroAts">--</b>
+            </div>
+            <div>
+              <span>Readiness</span>
+              <b id="heroReadiness">--</b>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="card analyzer-card">
+        <h2>Analyze Resume</h2>
+        <div class="form-grid">
+          <div>
+            <label>Candidate name (optional)</label>
+            <input id="candidateName" type="text" placeholder="Neil" />
+          </div>
+          <div>
+            <label>Target role (optional)</label>
+            <input id="targetRole" type="text" placeholder="Software Engineer" />
+          </div>
+        </div>
+        <label>Resume PDF</label>
+        <input id="resumeFile" type="file" accept="application/pdf" />
+        <button id="analyzeBtn">Upload And Analyze</button>
+        <p id="statusText" class="status"></p>
+      </section>
+
+      <section class="card" id="resultCard" hidden>
+        <h2>Analysis Result</h2>
+        <div class="score-grid">
+          <article class="metric">
+            <p>Overall Score</p>
+            <h3 id="overallScore">-</h3>
+          </article>
+          <article class="metric">
+            <p>ATS Readability</p>
+            <h3 id="atsScore">-</h3>
+          </article>
+        </div>
+
+        <h3>Summary</h3>
+        <p id="summaryText" class="summary"></p>
+
+        <div class="grid-2">
+          <div class="insight-panel">
+            <h3>Strengths</h3>
+            <ul id="strengthsList"></ul>
+          </div>
+          <div class="insight-panel">
+            <h3>Improvements</h3>
+            <ul id="improvementsList"></ul>
+          </div>
+          <div class="insight-panel">
+            <h3>Missing Keywords</h3>
+            <ul id="keywordsList"></ul>
+          </div>
+          <div class="insight-panel">
+            <h3>Action Plan</h3>
+            <ul id="actionPlanList"></ul>
+          </div>
+        </div>
+
+        <details>
+          <summary>Raw API Response</summary>
+          <pre id="rawOutput"></pre>
+        </details>
+      </section>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
